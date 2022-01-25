@@ -1,0 +1,56 @@
+class Main
+{
+	public static String encode(String str)
+	{
+		String encoding = "";
+		
+		if (str == null) {
+			return encoding;
+		}
+
+		int count;
+
+		for (int i = 0; i < str.length(); i++)
+		{
+			count = 1;
+			while (i + 1 < str.length() && str.charAt(i) == str.charAt(i + 1))
+			{
+				count++;
+				i++;
+			}
+
+			if (count >= 1 || count < 10) {
+				encoding = encoding + '/' + '0' + String.valueOf(count) + str.charAt(i);
+            }
+        	else {
+				encoding = encoding + '/' + String.valueOf(count) + str.charAt(i);
+        	}
+		}
+
+		return encoding;
+	}
+
+	public static void main(String[] args)
+	{
+		String str = "aaaaa";
+
+		System.out.println(encode(str));
+		
+		String str2 = "aaaa";
+		
+		System.out.println(encode(str2));
+		
+		String str3 = "abcabcabcabcabc";
+		
+		System.out.println(encode(str3));
+		
+		String str4 = "if(a){if(b){if(c){if(d){if(e){5 deeeeeeep}}}}}";
+		
+		System.out.println(encode(str4));
+		
+		String str5 = "''";
+		
+		System.out.println(encode(str5));
+		
+	}
+}
