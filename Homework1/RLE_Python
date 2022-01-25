@@ -1,0 +1,37 @@
+def run_length_encoding(string):
+    encoded_string = ""
+    i = 0
+    while (i <= len(string)-1):
+        count = 1
+        ch = string[i]
+        j = i
+        while (j < len(string)-1):     
+            if (string[j] == string[j + 1]): 
+                count = count + 1
+                j = j + 1
+            else: 
+                break
+        if count <= 4:
+            encoded_string = encoded_string + ch*count 
+        elif count >= 5 or count < 10:
+            encoded_string = encoded_string + '/' + '0' + str(count) + ch
+        else:
+            encoded_string = encoded_string + '/' + str(count) + ch
+        i = j + 1
+    return encoded_string
+
+string_1 = run_length_encoding("aaaaa")
+print(string_1)
+
+string_2 = run_length_encoding("aaaa")
+print(string_2)
+
+string_3 = run_length_encoding("abcabcabcabcabc")
+print(string_3)
+
+string_4 = run_length_encoding("if(a){if(b){if(c){if(d){if(e){5 deeeeeeep}}}}}")
+print(string_4)
+
+string_5 = run_length_encoding("''")
+print(string_5)
+
