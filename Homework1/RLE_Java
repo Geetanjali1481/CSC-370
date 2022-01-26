@@ -18,10 +18,15 @@ class Main
 				count++;
 				i++;
 			}
+			// I wanted to implement the same logic for the condition of count < 4 that I have used for python, but not able to figure out the syntax needed to be used
+			/* if (count < 4) {
+			encoding = encoding + str.charAt(i)*count;
+			} */
+			// Tried using this line but didn't run, was trying the make the character repeat itself the number of times of the value of count
 
 			if (count >= 1 || count < 10) {
 				encoding = encoding + '/' + '0' + String.valueOf(count) + str.charAt(i);
-            }
+            	}
         	else {
 				encoding = encoding + '/' + String.valueOf(count) + str.charAt(i);
         	}
