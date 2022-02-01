@@ -1,0 +1,30 @@
+user_input = []
+n = int(input("Enter the number of users: "))
+print("\n")
+for i in range(n):
+    print("Enter element of each user: ", i)
+    element = int(input())
+    user_input.append(element)
+print("The users input list is: ", user_input)
+print("\t")
+
+minPermission = int(input("Enter the minimum permission that a user must have to use this resource: "))
+    
+count_denied = 0 
+count_access = 0 
+for j in user_input:
+    if j < minPermission:
+        print("D", end ="")
+        count_denied += 1
+    else:
+        print("A", end = "")
+        count_access += 1
+print("\t")
+if not user_input:
+    print("It makes no difference what permission is required, since there are no users to check")    
+elif count_access == 0:
+    print("Unfortunately, nobody has sufficient access.")
+elif count_denied == 0:
+    print("Everyone has sufficient access.")
+else:
+    print(f"Here {count_denied} users don't have sufficient privileges, and {count_access} users have the access.")
